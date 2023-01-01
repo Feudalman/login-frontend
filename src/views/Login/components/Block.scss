@@ -1,0 +1,16 @@
+.LoginBlock {
+    width: 350px;
+    height: 270px;
+
+    .inputItem {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding-top: 50px;
+
+        span {
+            width: 50px;
+        }
+    }
+}
