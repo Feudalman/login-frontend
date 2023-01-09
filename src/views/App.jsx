@@ -1,5 +1,5 @@
 /**
- * 项目入口
+ * 页面入口
  */
 
 import { useRoutes } from "react-router-dom";
