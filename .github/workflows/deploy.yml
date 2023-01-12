@@ -1,0 +1,27 @@
+name: deploy to server
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: deploy to server
+    runs-on: ubuntu-latest
+
+    steps:
+    # 拉取代码
+      - name: checkout
+        uses: actions/checkout@v3
+
+    steps:
+      - name: ssh to server and deploy
+        uses: appleboy/ssh-action@master
+        width:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_SECRET }}
+          port: ${{ secrets.PORT }}
+          script: |
+            echo "hhhh"
