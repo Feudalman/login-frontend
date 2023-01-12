@@ -15,7 +15,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-    steps:
       - name: ssh to server and deploy
         uses: appleboy/ssh-action@master
         width:
