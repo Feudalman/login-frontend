@@ -23,4 +23,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_SECRET }}
           port: ${{ secrets.PORT }}
           script: |
-            echo "hhhh"
+            echo "hello action"
