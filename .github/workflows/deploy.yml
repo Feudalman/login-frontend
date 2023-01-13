@@ -26,3 +26,6 @@ jobs:
             cd / && cd Projects/CLogin/login-frontend
             git pull
             npm run build
+            docker restart clogin
+
+# docker run -d -p 80:80 --name clogin -v /Projects/CLogin/login-frontend/build:/usr/share/nginx/html clogin:0.0.1
