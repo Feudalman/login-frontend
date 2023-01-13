@@ -23,4 +23,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_SECRET }}
           port: ${{ secrets.PORT }}
           script: |
-            echo "hello action"
+            cd / && cd Projects/CLogin/login-frontend
+            git pull
+            npm run build
