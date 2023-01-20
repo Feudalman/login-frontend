@@ -1,3 +1,7 @@
+/**
+ * 登录框组件
+ */
+
 import "../Block.scss";
 
 // 输入框组件使用的是antd组件库中的
@@ -27,22 +31,28 @@ const LoginBlock = React.forwardRef((props, ref) => {
      * 还可以看看这篇博客：https://blog.csdn.net/qq_51574759/article/details/128487007?spm=1001.2014.3001.5501
      */
     let temp = JSON.parse(JSON.stringify(userInfo));
+    // 当输入时，使用受控方式实现数据的双向绑定
     if (type === "account") {
       temp.account = e.target.value;
     } else {
       temp.password = e.target.value;
     }
+    // 必须用 useState 返回的方法更新数据，才能维持响应式
     setUserInfo(temp);
+    // 通过props绑定的自定义事件，向父组件传递数据
     props.getData(temp);
   };
 
   return (
     <div className="LoginBlock">
+      {/* 账号输入框 */}
       <div className="inputItem">
         <span>账号: </span>
+        {/* 当前输入框组件使用的是antd中的 */}
         <Input
           placeholder="请输入您的账号(邮箱)"
           value={userInfo.account}
+          // 实现数据双向绑定
           onChange={(e) => handleInput(e, "account")}
           type="text"
         ></Input>

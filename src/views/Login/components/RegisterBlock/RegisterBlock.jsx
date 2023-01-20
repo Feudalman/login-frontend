@@ -1,9 +1,20 @@
+/**
+ * 注册框组件
+ */
+
 import "../Block.scss";
 
 import { Input } from "antd";
 import React, { useState } from "react";
 
 const RegisterBlock = React.forwardRef((props, ref) => {
+  /**
+   * 这里的代码和登录组件复用率很高
+   * 还是那个问题，两个组件本应该集成起来
+   * 但是因为个人原因没有弄
+   * 想要优化的同学可以优化一下
+   */
+
   let [userInfo, setUserInfo] = useState({
     account: "",
     password: "",
