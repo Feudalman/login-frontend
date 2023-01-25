@@ -44,7 +44,7 @@ export default function Login() {
    * @returns 
    */
   const confirm = async () => {
-    // 下面是发送请求，检查返回值的过程，现在不用管这个
+    // 下面是发送请求，检查返回值的过程
     let res = null;
     if (loginState === "Sign In") {
       res = await UserLogin(userInfo);

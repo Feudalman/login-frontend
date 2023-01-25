@@ -23,7 +23,10 @@ service.interceptors.request.use(config => {
   //   // config.params = {'Authorization':token} //如果要求携带在参数中
   //   config.headers.Authorization= token; //如果要求携带在请求头中
   // }
-  config.headers.Authorization= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMTU3NTA3OTQzNUBxcS5jb20iLCJwYXNzd29yZCI6IjE1NzUwNzk0MzUiLCJpYXQiOjE2NzI0NTg2OTcsImV4cCI6MTY3MjU0NTA5N30.sAAeSplKLIXv6wqmNJP-s9TpC14Ite2dlpX4C-2y8Rs"
+  // 这里应该从前端缓存中取出登录是存放的token进行赋值
+  // 调试的时候我建议可以将生成的token直接复制到这里
+  // 至于怎么缓存，可是使用浏览器本地缓存，也可是使用如redux之类的技术
+  config.headers.Authorization = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMTU3NTA3OTQzNUBxcS5jb20iLCJwYXNzd29yZCI6IjE1NzUwNzk0MzUiLCJpYXQiOjE2NzI0NTg2OTcsImV4cCI6MTY3MjU0NTA5N30.sAAeSplKLIXv6wqmNJP-s9TpC14Ite2dlpX4C-2y8Rs"
   return config
 }, error => {
   Promise.reject(error)
