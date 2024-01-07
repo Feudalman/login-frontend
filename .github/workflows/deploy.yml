@@ -15,17 +15,23 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: ssh to server and deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_SECRET }}
-          port: ${{ secrets.PORT }}
-          script: |
-            cd / && cd Projects/CLogin/login-frontend
-            git pull
-            npm run build
-            docker restart clogin
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          file: coverage.yml
+
+      # - name: ssh to server and deploy
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     key: ${{ secrets.SSH_PRIVATE_SECRET }}
+      #     port: ${{ secrets.PORT }}
+      #     script: |
+      #       cd / && cd Projects/CLogin/login-frontend
+      #       git pull
+      #       npm run build
+      #       docker restart clogin
 
 # docker run -d -p 80:80 --name clogin -v /Projects/CLogin/login-frontend/build:/usr/share/nginx/html clogin:0.0.1
